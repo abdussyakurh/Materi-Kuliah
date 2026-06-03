@@ -24,19 +24,35 @@ class Stack:
     # method untuk menecek apakah stack kosong
     def isEmpty(self):
         return self.head is None
+        
+    def is_empty(self):
+        return self.isEmpty()
+        
     # method untuk melihat stack teratas
     def peek(self):
         if not self.head:
             return None
         return self.head.data
 
+    # method untuk menampilkan isi stack
+    def display(self):
+        temp = self.head
+        if self.isEmpty():
+            print("Stack kosong")
+            return
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
 # Penggunaan
-mystack = Stack()
-mystack.push(10)
-mystack.push(20)
-mystack.push(30)
-mystack.display()
-mystack.pop()
-mystack.display()
-print(mystack.isEmpty())
-print(mystack.peek())
+if __name__ == "__main__":
+    mystack = Stack()
+    mystack.push(10)
+    mystack.push(20)
+    mystack.push(30)
+    mystack.display()
+    mystack.pop()
+    mystack.display()
+    print(mystack.isEmpty())
+    print(mystack.peek())
