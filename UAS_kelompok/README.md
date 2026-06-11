@@ -37,4 +37,5 @@
 ​   - Tabel Rincian: Lihat tabel di bagian bawah untuk melihat detail hubungan antar node beserta nominal pastinya dalam bentuk tabular.
 4. Fitur Audio (TTS)
 ​   - Setiap kali Anda berhasil menambahkan data, sisa saldo akan dihitung ulang.​- Dengarkan pembaruan status sisa saldo Anda secara langsung melalui pemutar audio gTTS yang muncul di bagian bawah halaman.
+
 📝 Catatan Pengembangan Proyek ini memisahkan logika bisnis (Backend) dan tampilan (Frontend) untuk memastikan kode tetap rapi dan mudah dikembangkan di kemudian hari (seperti menambahkan fitur hapus node atau penyimpanan database).
