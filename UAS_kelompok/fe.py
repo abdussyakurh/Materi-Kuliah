@@ -1,11 +1,12 @@
-import io
-from gtts import gTTS
-import streamlit as st
-import networkx as nx
-import matplotlib.pyplot as plt
-import calendar
-from datetime import datetime
+import io # Buat nyimpen file audio di RAM (biar gak menuhin storage)
+from gtts import gTTS # Google Text-to-Speech: ngerubah teks jadi suara
+import streamlit as st # Framework buat bikin UI web secara instan
+import networkx as nx # Library khusus buat manipulasi struktur Graf/Network
+import matplotlib.pyplot as plt # Buat nggambar grafis/visualisasi dari data
+import calendar # Buat urusan tanggal (cek jumlah hari dalam sebulan)
+from datetime import datetime # Buat ngambil waktu sekarang (tahun/bulan)
 from kodingannya import KebutuhanSehariHari
+
 
 # Set halaman Streamlit
 st.set_page_config(page_title="Visualisasi Kebutuhan Graf", layout="wide")
@@ -38,7 +39,7 @@ total_dana = st.sidebar.number_input("Total Dana Bulanan (Rp)", min_value=0, val
 tahun_sekarang = datetime.now().year
 bulan_sekarang = datetime.now().month
 
-pilihan_tahun = st.sidebar.selectbox("Pilih Tahun", range(tahun_sekarang, tahun_sekarang + 5), index=0)
+pilihan_tahun = st.sidebar.selectbox("Pilih Tahun", range(tahun_sekarang, tahun_sekarang + 5), index=2)
 pilihan_bulan = st.sidebar.selectbox(
     "Pilih Bulan", 
     range(1, 13), 
@@ -112,18 +113,20 @@ if submit_button and kategori_kebutuhan:
 st.subheader("🗑️ Hapus Kebutuhan")
 st.caption("Hapus item kebutuhan yang sudah tidak dibutuhkan lagi. Node tersebut akan dihapus dari graf beserta semua relasinya.")
 
+if 'success_message_hapus' in st.session_state:
+    st.success(st.session_state.success_message_hapus)
+    del st.session_state.success_message_hapus
+
 kebutuhan_opsi = sorted([node for node in manajer.get_all_kebutuhan() if "(Tgl " in node])
 if kebutuhan_opsi:
     pilihan_hapus_kebutuhan = st.selectbox("Pilih Kebutuhan untuk Dihapus", kebutuhan_opsi)
     if st.button("Hapus Kebutuhan"):
         if manajer.hapus_kebutuhan(pilihan_hapus_kebutuhan):
-            st.success(f"Berhasil menghapus {pilihan_hapus_kebutuhan} dari alokasi dana.")
-            # Gunakan experimental_rerun jika tersedia; jika tidak, hentikan eksekusi
-            # agar Streamlit merender ulang di interaksi selanjutnya.
-            if hasattr(st, "experimental_rerun"):
+            st.session_state.success_message_hapus = f"Berhasil menghapus {pilihan_hapus_kebutuhan} dari alokasi dana."
+            if hasattr(st, "rerun"):
+                st.rerun()
+            elif hasattr(st, "experimental_rerun"):
                 st.experimental_rerun()
-            else:
-                st.stop()
         else:
             st.warning("Kebutuhan tidak ditemukan atau sudah dihapus.")
 else:
