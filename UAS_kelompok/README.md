@@ -29,10 +29,10 @@
 ​📖 Panduan Penggunaan Aplikasi​Setelah aplikasi terbuka di browser, Anda dapat mengikuti langkah-langkah berikut:
 1. Pengaturan Awal (Sidebar)
 ​   - Masukkan Total Dana Bulanan yang Anda miliki pada kolom input di sidebar sebelah kiri.​- Pilih Tahun dan Bulan anggaran. Sistem akan otomatis menyesuaikan batas maksimum hari pada bulan tersebut.
-2 .Input Data Alokasi Dana (Panel Utama)​- Tentukan Tanggal transaksi/alokasi.
+2. Input Data Alokasi Dana (Panel Utama)​- Tentukan Tanggal transaksi/alokasi.
    - Isi Nama Kebutuhan (misal: Makanan, Listrik, Kost).​- Masukkan Nominal Dana yang dialokasikan untuk kebutuhan tersebut.
 ​   - Klik tombol "Tambah ke Graf".
-3 .Membaca Hasil Visualisasi
+3. Membaca Hasil Visualisasi
    - Graf Jaringan: Perhatikan visualisasi graf yang terbentuk secara otomatis. Struktur hubungan akan mengalir dari: Pusat Dana (Total) ➔ Tanggal Transaksi ➔ Nama Kebutuhan
 ​   - Tabel Rincian: Lihat tabel di bagian bawah untuk melihat detail hubungan antar node beserta nominal pastinya dalam bentuk tabular.
 4. Fitur Audio (TTS)
