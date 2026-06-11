@@ -44,7 +44,7 @@ pilihan_bulan = st.sidebar.selectbox(
     range(1, 13), 
     index=bulan_sekarang - 1,
     format_func=lambda x: calendar.month_name[x]
-)
+) 
 
 # Hitung jumlah hari otomatis (menangani 28, 29, 30, 31 hari)
 _, jumlah_hari = calendar.monthrange(pilihan_tahun, pilihan_bulan)
